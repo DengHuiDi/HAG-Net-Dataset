@@ -1,0 +1,5 @@
+model,subset,images,AP50_fire_percent,AP50_smoke_percent,mAP50_percent,mAP50_95_percent
+YOLOv11n,low_illumination,483,76.9109,80.9936,78.9523,45.0724
+HAG-Net,low_illumination,483,79.2646,81.3491,80.3068,46.4250
+YOLOv11n,occlusion,1199,63.8210,78.3281,71.0745,41.5468
+HAG-Net,occlusion,1199,70.3433,78.0674,74.2054,43.0925

@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.yolo_test/
+runs/
+datasets/
+.env

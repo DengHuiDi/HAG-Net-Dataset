@@ -1,0 +1,7 @@
+model,seed,best_AP50_percent
+YOLOv11n,0,73.152
+YOLOv11n,1,72.693
+YOLOv11n,2,72.612
+HAG-Net,0,76.131
+HAG-Net,1,75.478
+HAG-Net,2,75.379

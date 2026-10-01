@@ -1,0 +1,7 @@
+path: ..
+train: splits/fsd1902/train.txt
+val: splits/fsd1902/val.txt
+test: splits/fsd1902/test.txt
+names:
+  0: fire
+  1: smoke
