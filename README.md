@@ -4,8 +4,8 @@ Official resources for HAG-Net, a compact detector for RGB UAV fire and smoke de
 
 ## Contents
 
-- `models/`: HAG-Net configuration and the DMMM, CAFM, and Gradient-aware Decoupled Detection Head implementations.
-- `weights/`: final HAG-Net checkpoint, portable TorchScript model, and YOLOv11n baseline checkpoint.
+- `models/`: model code and implementations of DMMM, CAFM, and the Gradient-aware Decoupled Detection Head.
+- `weights/`: HAG-Net and YOLOv11n baseline checkpoints, plus a portable HAG-Net TorchScript artifact.
 - `configs/`: dataset configuration templates.
 - `splits/fsd1902/`: fixed FSD-1902 train/validation/test lists.
 - `scripts/`: training, validation, prediction, and module verification entry points.
@@ -31,9 +31,22 @@ python scripts/check_modules.py
 python models/build.py
 ```
 
-Dataset classes are class 0 `fire` and class 1 `smoke`. Dataset A images are not redistributed. FSD-1902 uses the fixed 1,332/380/190 lists supplied in `splits/fsd1902/`. D-Fire must be obtained separately from its official source.
+## Dataset A
 
-See `docs/DATASETS.md`, `docs/RESULTS.md`, and `docs/REPRODUCIBILITY.md` for details.
+The main experiments use a fixed split of 4,734 training and 1,639 validation images, with class 0 = `fire` and class 1 = `smoke`. Dataset A images are not redistributed in this repository. An image-level manifest for this split has been prepared locally but **has not yet been published here**. It records image IDs, paths relative to a Dataset A root, split membership, SHA-256 checksums, and source categories according to the documented dataset-organisation rules. These source categories should not be interpreted as independently verified original-file provenance. A public manifest link and an authorised data-access procedure will be added once available.
+
+FSD-1902 uses the fixed 1,332/380/190 lists in `splits/fsd1902/`. D-Fire must be obtained separately from its original provider. See `docs/DATASETS.md` for further dataset information.
+
+## Checkpoints and configuration correspondence
+
+| Model | Checkpoint | SHA-256 of original checkpoint | Configuration note |
+| --- | --- | --- | --- |
+| YOLOv11n, seed 0 | [`weights/YOLOv11n_baseline.pt`](weights/YOLOv11n_baseline.pt) | `43442d4e69132f565bd032d63f9940b9d2bf932bafe0e65d552744576e21a8ca` | The original run used the upstream Ultralytics `yolo11.yaml`; an exact copy is not included here. |
+| HAG-Net, seed 0 | [`weights/HAG-Net.pt`](weights/HAG-Net.pt) | `5faa2ec91eb7f23092fb9cb91789d5acbfd5366989dd9e0c8962a8d9020a0be8` | The exact training configuration is not yet published here. The current `models/HAG-Net.yaml` is **not** the YAML referenced by the original training run. |
+
+The checkpoint files are tracked with Git LFS. Their LFS object IDs match the SHA-256 values of the original local `best.pt` files; binary downloads from a clean environment have not yet been independently tested. `weights/HAG-Net.torchscript` is a separate inference artifact, not a substitute for the seed-0 checkpoint.
+
+See `docs/RESULTS.md` and `docs/REPRODUCIBILITY.md` for additional details.
 
 ## License
 
