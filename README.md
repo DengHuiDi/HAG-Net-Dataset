@@ -37,12 +37,12 @@ The main experiments use a fixed split of 4,734 training and 1,639 validation im
 
 FSD-1902 uses the fixed 1,332/380/190 lists in `splits/fsd1902/`. D-Fire must be obtained separately from its original provider. See `docs/DATASETS.md` for further dataset information.
 
-## Checkpoints and configuration correspondence
+## Checkpoints and model files
 
-| Model | Checkpoint | SHA-256 of original checkpoint | Configuration note |
+| Model | Checkpoint | SHA-256 of original checkpoint | Repository model file |
 | --- | --- | --- | --- |
-| YOLOv11n, seed 0 | [`weights/YOLOv11n_baseline.pt`](weights/YOLOv11n_baseline.pt) | `43442d4e69132f565bd032d63f9940b9d2bf932bafe0e65d552744576e21a8ca` | The original run used the upstream Ultralytics `yolo11.yaml`; an exact copy is not included here. |
-| HAG-Net, seed 0 | [`weights/HAG-Net.pt`](weights/HAG-Net.pt) | `5faa2ec91eb7f23092fb9cb91789d5acbfd5366989dd9e0c8962a8d9020a0be8` | The exact training configuration is not yet published here. The current `models/HAG-Net.yaml` is **not** the YAML referenced by the original training run. |
+| YOLOv11n, seed 0 | [`weights/YOLOv11n_baseline.pt`](weights/YOLOv11n_baseline.pt) | `43442d4e69132f565bd032d63f9940b9d2bf932bafe0e65d552744576e21a8ca` | Upstream Ultralytics `yolo11.yaml` |
+| HAG-Net, seed 0 | [`weights/HAG-Net.pt`](weights/HAG-Net.pt) | `5faa2ec91eb7f23092fb9cb91789d5acbfd5366989dd9e0c8962a8d9020a0be8` | [`models/HAG-Net.yaml`](models/HAG-Net.yaml) |
 
 The checkpoint files are tracked with Git LFS. Their LFS object IDs match the SHA-256 values of the original local `best.pt` files; binary downloads from a clean environment have not yet been independently tested. `weights/HAG-Net.torchscript` is a separate inference artifact, not a substitute for the seed-0 checkpoint.
 
