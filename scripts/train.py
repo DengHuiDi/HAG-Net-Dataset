@@ -9,7 +9,7 @@ from models.build import build_hagnet
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--data", default="configs/dataset_a.yaml")
-    p.add_argument("--epochs", type=int, default=300)
+    p.add_argument("--epochs", type=int, default=200)
     p.add_argument("--imgsz", type=int, default=640)
     p.add_argument("--batch", type=int, default=16)
     p.add_argument("--device", default="0")
