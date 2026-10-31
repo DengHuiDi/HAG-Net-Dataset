@@ -7,6 +7,7 @@ Official resources for HAG-Net, a compact detector for RGB UAV fire and smoke de
 - `models/`: model code and implementations of DMMM, CAFM, and the Gradient-aware Decoupled Detection Head.
 - `weights/`: HAG-Net and YOLOv11n baseline checkpoints, plus a portable HAG-Net TorchScript artifact.
 - `configs/`: dataset configuration templates.
+- `splits/dataset_a/`: the fixed Dataset A train/validation image-ID and checksum manifest (no images or labels).
 - `splits/fsd1902/`: fixed FSD-1902 train/validation/test lists.
 - `scripts/`: training, validation, prediction, and module verification entry points.
 - `results/`: verified experimental summaries.
@@ -33,7 +34,7 @@ python models/build.py
 
 ## Dataset A
 
-The main experiments use a fixed split of 4,734 training and 1,639 validation images, with class 0 = `fire` and class 1 = `smoke`. Dataset A images are not redistributed in this repository. An image-level manifest for this split has been prepared locally but **has not yet been published here**. It records image IDs, paths relative to a Dataset A root, split membership, SHA-256 checksums, and source categories according to the documented dataset-organisation rules. These source categories should not be interpreted as independently verified original-file provenance. A public manifest link and an authorised data-access procedure will be added once available.
+The main experiments use a fixed split of 4,734 training and 1,639 validation images, with class 0 = `fire` and class 1 = `smoke`. The [Dataset A split manifest](splits/dataset_a/dataset_a_manifest.csv) publishes image IDs, relative image and label paths, split membership, SHA-256 checksums, and qualified source categories. Dataset A images and label files are not redistributed here. Source categories follow the documented dataset-organisation rules and are marked `probable`, not independently verified original-file provenance. See the [manifest notes](splits/dataset_a/README.md) for field definitions and distribution scope.
 
 FSD-1902 uses the fixed 1,332/380/190 lists in `splits/fsd1902/`. D-Fire must be obtained separately from its original provider. See `docs/DATASETS.md` for further dataset information.
 
