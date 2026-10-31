@@ -9,9 +9,10 @@ Official resources for HAG-Net, a compact detector for RGB UAV fire and smoke de
 - `configs/`: dataset configuration templates.
 - `splits/dataset_a/`: the fixed Dataset A train/validation image-ID and checksum manifest (no images or labels).
 - `splits/fsd1902/`: fixed FSD-1902 train/validation/test lists.
+- `annotations/fsd1902/`: FSD-1902 image-name mapping and annotation-package instructions.
 - `scripts/`: training, validation, prediction, and module verification entry points.
 - `results/`: verified experimental summaries.
-- `FSD-1902.zip`: FSD-1902 RGB images and YOLO annotations.
+- [`annotations/fsd1902/FSD-1902-annotations-only.zip`](annotations/fsd1902/FSD-1902-annotations-only.zip): team-added YOLO labels, fixed lists, mapping, and instructions; no source images or videos.
 
 ## Installation
 
@@ -36,7 +37,7 @@ python models/build.py
 
 The main experiments use a fixed split of 4,734 training and 1,639 validation images, with class 0 = `fire` and class 1 = `smoke`. The [Dataset A split manifest](splits/dataset_a/dataset_a_manifest.csv) publishes image IDs, relative image and label paths, split membership, SHA-256 checksums, and qualified source categories. Dataset A images and label files are not redistributed here. Source categories follow the documented dataset-organisation rules and are marked `probable`, not independently verified original-file provenance. See the [manifest notes](splits/dataset_a/README.md) for field definitions and distribution scope.
 
-FSD-1902 uses the fixed 1,332/380/190 lists in `splits/fsd1902/`. D-Fire must be obtained separately from its original provider. See `docs/DATASETS.md` for further dataset information.
+FSD-1902 uses the fixed 1,332/380/190 lists in `splits/fsd1902/`. Its source RGB imagery comes from Hopkins et al.'s FLAME 2 dataset ([IEEE DataPort DOI: 10.21227/swyw-6j78](https://doi.org/10.21227/swyw-6j78)) and must be obtained from that provider under its applicable terms. This repository distributes only the team's added fire/smoke annotations, fixed split, and [image-name mapping/status](annotations/fsd1902/image_mapping.jsonl), not FLAME 2 source images. The source-to-working-image rename mapping has not been recovered, so the official download cannot be paired automatically with every label; see the [assembly instructions](annotations/fsd1902/README.md). D-Fire must be obtained separately from its original provider. See `docs/DATASETS.md` for further dataset information.
 
 ## Checkpoints and model files
 
@@ -51,4 +52,4 @@ See `docs/RESULTS.md` and `docs/REPRODUCIBILITY.md` for additional details.
 
 ## License
 
-The code follows the repository license. External datasets remain subject to their respective licenses and citation requirements.
+The code follows the repository license. FLAME 2 source images remain under the original provider's copyright and use conditions; the code license does not apply to or grant rights in those images. The archived DataPort page lists “Creative Commons Attribution,” but the license version and complete legal-text link have not been verified from the original download package. External datasets remain subject to their respective licenses and citation requirements.

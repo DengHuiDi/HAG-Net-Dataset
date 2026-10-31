@@ -1,3 +1,6 @@
+# User must obtain FLAME 2 images from https://doi.org/10.21227/swyw-6j78
+# and verify the original-image-to-working-filename mapping before assembling
+# FSD-1902/dataset/images/. The repository supplies labels and fixed lists only.
 path: ..
 train: splits/fsd1902/train.txt
 val: splits/fsd1902/val.txt
