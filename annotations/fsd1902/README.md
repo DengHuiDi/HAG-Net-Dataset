@@ -2,7 +2,7 @@ The original RGB images used in FSD-1902 are from Hopkins et al., *FLAME 2: Fire
 
 Our team selected 1,902 RGB images from the dataset and added YOLO-format bounding-box annotations for fire and smoke, with a fixed train/validation/test split: 1,332 training images, 380 validation images and 190 test images. Class 0 denotes fire and class 1 denotes smoke. The `dataset/labels/` directory holds a total of 1,902 TXT annotation files, including one empty file. The `splits/` directory stores the static image split lists. `image_mapping.jsonl` records the filename of each working image, its corresponding annotation file, dataset partition, and auxiliary video/frame information parsed from filenames.
 
-The **FLAME 2 Source Frame Lookup Table** (FSD1902_FLAME2_mapping.xlsx) lists the names of all 1,902 FSD-1902 working images and their matched FLAME 2 frame names.
+The **FLAME 2 Source Frame Lookup Table** (FSD1902_FLAME2_mapping_1.xlsx) lists the names of all 1,902 FSD-1902 working images and their matched FLAME 2 frame names.
 
 To locate source images: open the official FLAME 2 record page ([https://doi.org/10.21227/swyw-6j78](https://doi.org/10.21227/swyw-6j78)) and download **`#8) Original Resolution Frame Pairs.zip` (Item 8: Original-resolution frame pair archive)** from the data provider. Use only the RGB images and exclude the paired thermal infrared images. For each entry in the lookup table, search the extracted RGB files for `estimated_FLAME2_filename` (estimated FLAME 2 filename), then visually verify that the retrieved frame matches `FSD1902_image` (FSD1902 image). If the direct archive link fails, retrieve resources via the official DOI page.
 
